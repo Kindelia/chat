@@ -1,4 +1,4 @@
-import { prisma } from "./prisma";
+import { prisma } from "database/src/client";
 
 export interface Todo {
   id: number;
