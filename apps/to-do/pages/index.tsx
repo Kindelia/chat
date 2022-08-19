@@ -2,9 +2,8 @@ import { GetServerSideProps } from "next";
 import { getAllTodos, Todo } from "../lib/db";
 import { useState } from "react";
 import type { NextPage } from "next";
-import { useSession } from "next-auth/react";
-import Head from "next/head";
-import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
+import useRequireAuth from "../lib/useRequireAuth";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const todos = await getAllTodos();
@@ -20,8 +19,11 @@ interface PostProps {
 }
 
 const Home = ({ todos }: PostProps) => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const [description, setDescription] = useState("");
+  const session = useRequireAuth();
+  if (!session) return <div>loading...</div>;
+
   const handleClick = async () => {
     await fetch("/api/todo", {
       method: "POST",
@@ -33,6 +35,7 @@ const Home = ({ todos }: PostProps) => {
     <div className="h-screen bg-gray-500">
       <nav className="flex justify-center p-4 bg-gray-600">
         <h1 className="text-white text-2xl font-bold">{`Bem vindo ${session?.user?.name}`}</h1>
+        <button onClick={() => signOut()}>Sair</button>
       </nav>
       <div>
         <form className="flex justify-center mt-10">
