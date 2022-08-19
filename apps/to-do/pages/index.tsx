@@ -2,14 +2,24 @@ import { GetServerSideProps } from "next";
 import { getAllTodos, Todo } from "../lib/db";
 import { useState } from "react";
 import type { NextPage } from "next";
-import { signOut, useSession } from "next-auth/react";
-import useRequireAuth from "../lib/useRequireAuth";
+import { signOut, useSession, getSession } from "next-auth/react";
+// import useRequireAuth from "../lib/useRequireAuth";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const todos = await getAllTodos();
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
       todos,
+      session,
     },
   };
 };
@@ -19,10 +29,10 @@ interface PostProps {
 }
 
 const Home = ({ todos }: PostProps) => {
-  // const { data: session } = useSession();
   const [description, setDescription] = useState("");
-  const session = useRequireAuth();
-  if (!session) return <div>loading...</div>;
+  const { data: session } = useSession();
+  // const session = useRequireAuth();
+  // if (!session) return <div>loading...</div>;
 
   const handleClick = async () => {
     await fetch("/api/todo", {
