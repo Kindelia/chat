@@ -10,10 +10,6 @@ function NewTodo() {
     try {
       mutate("/api/todo", [...data, { description: description }], false);
       await axios.post("/api/todo", { description });
-      // await fetch('/api/todo', {
-      //   method: 'POST',
-      //   body: JSON.stringify(description),
-      // });
       setDescription("");
     } catch (err) {
       console.log(err);

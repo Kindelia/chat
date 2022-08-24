@@ -1,43 +1,15 @@
-import { GetServerSideProps } from "next";
-import { getAllTodos, Todo } from "../lib/db";
+import { Todo } from "../lib/db";
 import NewTodo from "../components/NewTodo";
-import { useEffect, useState } from "react";
 import useSWR from "swr";
-import Nav from "../components/Nav";
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const todos = await getAllTodos();
-//   return {
-//     props: {
-//       todos,
-//     },
-//   };
-// };
-
-// interface PostProps {
-//   todos: Todo[];
-// }
 
 const Home = () => {
-  // const [todos, setTodos] = useState<Todo[]>();
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     const response = await fetch('http://localhost:3000/api/todos');
-  //     const data = await response.json();
-  //     setTodos(data);
-  //   };
-  //   loadData();
-  // }, []);
-
   const { data: todos } = useSWR<Todo[]>("/api/todo");
-
-  if (!todos) {
-    return <h1>carregando...</h1>;
-  }
 
   return (
     <div className="h-screen bg-gray-500">
-      <Nav />
+      <nav className="flex justify-center p-4 bg-gray-600">
+        <h1 className="text-white text-2xl font-bold">Todo App</h1>
+      </nav>
       <div>
         <NewTodo />
         <div>
