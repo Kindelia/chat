@@ -1,4 +1,4 @@
-import Layout from "../components/layout"
+import Layout from "chat/components/layout"
 
 export default function Page() {
   return (

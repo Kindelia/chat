@@ -1,4 +1,4 @@
-import Layout from "../components/layout"
+import Layout from "chat/components/layout"
 
 export default function PolicyPage() {
   return (
@@ -9,7 +9,7 @@ export default function PolicyPage() {
       </p>
       <h2>Terms of Service</h2>
       <p>
-        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+        THE SOFTWARE IS PROVIDED &quotAS IS&quot, WITHOUT WARRANTY OF ANY KIND, EXPRESS
         OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
         MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
         IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
