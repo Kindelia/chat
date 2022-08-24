@@ -1,0 +1,39 @@
+{
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+},
+"editor.formatOnSave": false,
+"editor.formatOnPaste": true,
+"javascript.format.enable": false,
+"eslint.packageManager": "yarn",
+  "eslint.validate": ["javascript"],
+  "files.exclude": {
+    "**/.yarn": true,
+    "**/.next": true,
+    "**/.turbo": true,
+    "**/.netlify": true,
+    "**/*.lock": true,
+    "**/node_modules": true,
+    "**/package.json": false,
+    "turbo.json": false,
+    ".vscode": true,
+    ".husky": true,
+    ".github": false,
+    ".eslintignore": true,
+    "**/.eslintrc.js": true,
+    "**/.eslintrc.json": true,
+    ".prettierrc.js": true,
+    ".prettierignore": true,
+    ".yarnrc": true,
+    "**/.gitignore": true,
+    "apps/**/postcss.config.js": true,
+    "apps/**/tailwind.config.js": true,
+    "apps/**/tsconfig.json": true,
+    "packages/**/tsconfig.json": true
+    "apps/**/.env*": true,
+    "packages/**/.env*": true
+  },
+  "files.insertFinalNewline": true
+}
