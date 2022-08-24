@@ -3,7 +3,6 @@ import { getAllTodos, Todo } from "../lib/db";
 import { useState } from "react";
 import type { NextPage } from "next";
 import { signOut, useSession, getSession } from "next-auth/react";
-// import useRequireAuth from "../lib/useRequireAuth";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const todos = await getAllTodos();
