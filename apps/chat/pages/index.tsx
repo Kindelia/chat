@@ -1,24 +1,12 @@
 import { GetServerSideProps } from "next";
-import { getAllTodos, Todo } from "../lib/db";
 import { useState } from "react";
-import type { NextPage } from "next";
-import { signOut, useSession, getSession } from "next-auth/react";
+import { getAllTodos, Todo } from "../lib/db";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const todos = await getAllTodos();
-  const session = await getSession(context);
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth/signin",
-        permanent: false,
-      },
-    };
-  }
   return {
     props: {
       todos,
-      session,
     },
   };
 };
@@ -29,9 +17,6 @@ interface PostProps {
 
 const Home = ({ todos }: PostProps) => {
   const [description, setDescription] = useState("");
-  const { data: session } = useSession();
-  // const session = useRequireAuth();
-  // if (!session) return <div>loading...</div>;
 
   const handleClick = async () => {
     await fetch("/api/todo", {
@@ -43,8 +28,7 @@ const Home = ({ todos }: PostProps) => {
   return (
     <div className="h-screen bg-gray-500">
       <nav className="flex justify-center p-4 bg-gray-600">
-        <h1 className="text-white text-2xl font-bold">{`Bem vindo ${session?.user?.name}`}</h1>
-        <button onClick={() => signOut()}>Sair</button>
+        <h1 className="text-white text-2xl font-bold">Todo App</h1>
       </nav>
       <div>
         <form className="flex justify-center mt-10">
