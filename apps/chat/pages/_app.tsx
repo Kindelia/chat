@@ -3,7 +3,7 @@ import { SWRConfig } from "swr";
 import axios from "../services/httpService";
 
 import { SessionProvider } from "next-auth/react";
-import "./auth/styles.css";
+import "./styles.css";
 
 import type { AppProps } from "next/app";
 
