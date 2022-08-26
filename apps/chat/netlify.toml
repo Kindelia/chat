@@ -1,7 +1,7 @@
 
 [build]
 YARN_VERSION = "1.22.19"
-command = "cd ../.. && yarn install && yarn build --filter=explorer..."
+command = "cd ../.. && yarn install && yarn build --filter=chat..."
 NETLIFY_USE_YARN = true
 environment = { NODE_VERSION = "16.13.0" }
 [[plugins]]
