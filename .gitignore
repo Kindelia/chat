@@ -37,7 +37,7 @@ yarn-error.log*
 **/.env*.local
 **/.env
 !packages/database/.env
-!apps/chat/.env
+#!apps/chat/.env
 
 # typescript
 **/*.tsbuildinfo
