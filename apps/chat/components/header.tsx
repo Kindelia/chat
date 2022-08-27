@@ -14,7 +14,7 @@ export default function Header() {
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className={styles.signedInStatus}>
+      <div className="{styles.signedInStatus} bg-gray-600">
         <p
           className={`nojs-show ${
             !session && loading ? styles.loading : styles.loaded
@@ -29,8 +29,8 @@ export default function Header() {
                 href={`/api/auth/signin`}
                 className={styles.buttonPrimary}
                 onClick={(e) => {
-                  e.preventDefault()
-                  signIn()
+                  e.preventDefault();
+                  signIn();
                 }}
               >
                 Sign in
@@ -54,16 +54,19 @@ export default function Header() {
                 href={`/api/auth/signout`}
                 className={styles.button}
                 onClick={(e) => {
-                  e.preventDefault()
-                  signOut()
+                  e.preventDefault();
+                  signOut();
                 }}
               >
                 Sign out
               </a>
+              <h1 className="text-white text-2xl font-bold flex justify-center p-4 bg-gray-600">
+                Todo App
+              </h1>
             </>
           )}
         </p>
       </div>
     </header>
-  )
+  );
 }
