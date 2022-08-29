@@ -6,7 +6,7 @@ const Home = () => {
   const { data: todos } = useSWR<Todo[]>("/api/todo");
 
   return (
-    <div className="bg-gray-500">
+    <div className="min-h-screen bg-gray-500">
         <NewTodo />
         <div>
           {todos?.map((item, index) => (

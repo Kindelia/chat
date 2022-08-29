@@ -18,7 +18,10 @@ function NewTodo() {
 
   return (
     <div>
-      <div className="flex justify-center ">
+      <div
+        className="flex justify-center p-4
+      "
+      >
         <div className="bg-gray-50 p-8 rounded-lg">
           <h1 className="text-center mb-4">Write Todo List</h1>
           <div className="flex space-x-2 p-2 bg-white rounded-md">
