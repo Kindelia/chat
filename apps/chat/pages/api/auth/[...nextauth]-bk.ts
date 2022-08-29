@@ -22,9 +22,6 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  theme: {
-    colorScheme: "light",
-  },
   secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   callbacks: {
@@ -36,10 +33,6 @@ export const authOptions: NextAuthOptions = {
         username: user.username,
       },
     }),
-    async jwt({ token }) {
-      token.userRole = "admin"
-      return token
-    },
   },
 };
 
